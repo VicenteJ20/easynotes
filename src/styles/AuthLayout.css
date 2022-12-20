@@ -1,0 +1,122 @@
+.AuthLayout{
+   min-height: 100vh;
+   width: 100vw;
+   background-color: var(--background-gray);
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+}
+
+.childrenDiv{
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 100vh;
+}
+
+.colorBrand{
+  color: var(--standard-yellow);
+}
+
+.headerChildren {
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.Form-section{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.header-form{
+  font-size: 2rem;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-div{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-div > label{
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-gray-text);
+}
+
+.form-div > input{
+  all: unset;
+  border: 2px solid var(--light-gray-text);
+  padding: 0.3rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.3rem;
+}
+
+.form-div > .input-error{
+  border-color: red;
+  color: red;
+}
+
+.form-div > .error{
+  color: red;
+}
+
+.button-div{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button-div > .info-btn {
+  color: var(--light-gray-text);
+  font-weight: 400;
+}
+
+.btn{
+  all: unset;
+  cursor: pointer;
+  transition: 0.5s all ease-in-out;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  text-align: center;
+}
+
+.submit-btn{
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1.2rem;
+  padding: 0.8rem;
+}
+
+.submit-btn:hover{
+  background-color: var(--standard-yellow);
+}
+
+.signed-div{
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.signed-div > p > a{
+  transition: 0.5s all ease-in-out;
+  font-weight: 500;
+}
+
+.signed-div > p > a:hover{
+  color: var(--standard-yellow);
+}
+
+.staticDiv{
+  background-image: url('../assets/layoutAuth/homeAuthLayout.png');
+  width: 100%;
+}
