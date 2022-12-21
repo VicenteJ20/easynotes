@@ -23,6 +23,10 @@
   font-size: 2rem;
 }
 
+.headerChildren > a {
+  text-decoration: none;
+}
+
 .Form-section{
   height: 100%;
   display: flex;

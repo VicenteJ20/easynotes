@@ -1,0 +1,39 @@
+.AuthMessage{
+  border: 3px solid var(--light-gray-text);
+  background-color: var(--white);
+  color: var(--black);
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 2rem;
+  left: 38%;
+}
+
+.danger{
+  border-color: rgb(107, 2, 2);
+  background-color: rgb(187, 6, 6);
+}
+
+.text{
+  position: relative;
+}
+
+.danger > .text > h3,
+.danger > .text  > p{
+  color: var(--white);
+}
+
+.noMessage{
+  display: none;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: none;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+}

@@ -12,7 +12,7 @@ export function Navbar () {
   return (
     <header className='header-nav'>
       <div className='brand-div'>
-        <NavLink to='/'>EasyNotes</NavLink>
+        <NavLink to='/'>Easy<span className='colorBrand'>Notes</span></NavLink>
       </div>
       <button className='button-mobile' onClick={setupMenu}>
         <div />

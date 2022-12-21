@@ -5,18 +5,26 @@ import { auth } from '../../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import AuthLayout from '../../layout/AuthLayout'
 import { Link } from 'react-router-dom'
+import AuthMessage from '../components/AuthMessage'
+import { useState } from 'react'
 
 export const Signup = () => {
+  const [showMessage, setShowMessage] = useState({})
+
   const onSubmit = async (values) => {
     try {
       await createUserWithEmailAndPassword(auth, values.email, values.password)
     } catch (error) {
-      console.log(error)
+      console.log(error.code)
+      if (error.code === 'auth/email-already-in-use') {
+        setShowMessage({ title: 'El correo ya está en uso', message: 'Diríjase al Login para iniciar sesión en su cuenta', type: 'danger', show: true })
+      }
     }
   }
 
   return (
     <AuthLayout>
+      <AuthMessage data={showMessage} />
       <section className='Form-section'>
         <header className='header-form'>
           <h2>Registro</h2>
