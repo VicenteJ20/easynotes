@@ -1,25 +1,30 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserProvider'
 import { Form, Formik } from 'formik'
 import { loginSchema } from '../schemas/login'
 import { Input } from '../components/Input'
 import AuthLayout from '../../layout/AuthLayout'
 import { Link } from 'react-router-dom'
+import AuthMessage from '../components/AuthMessage'
 
 export const Login = () => {
   const { loginUser } = useContext(UserContext)
+  const [showMessage, setShowMessage] = useState({})
 
   const onSubmit = async (values) => {
     try {
       await loginUser(values.email, values.password)
       console.log('Usuario logueado')
     } catch (error) {
-      console.log(error)
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+        setShowMessage({ title: 'El email o la contraseña es incorrecto', message: 'Revise sus credendiales o cree una nueva cuenta con su correo electrónico', type: 'danger' })
+      }
     }
   }
   return (
     <>
       <AuthLayout>
+        <AuthMessage data={showMessage} />
         <section className='Form-section'>
           <header className='header-form'>
             <h2>Iniciar sesión</h2>
