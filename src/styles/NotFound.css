@@ -1,0 +1,50 @@
+.NotFound{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.imgDiv{
+  height: 24rem;
+  width: 20rem;
+  background: url('../assets/NotFound.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+}
+
+.NotFound > h3{
+  font-size: 2rem;
+}
+
+.redirectToHome{
+  display: block;
+  background-color: var(--black);
+  border-radius: 0.3rem;
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  transition: 0.5s all ease-in-out;
+}
+
+.redirectToHome:hover{
+  background-color: var(--standard-yellow);
+}
+
+.headerNotFound{
+  position: fixed;
+  top: 2rem;
+  left: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.color-brand{
+  color: var(--standard-yellow);
+}

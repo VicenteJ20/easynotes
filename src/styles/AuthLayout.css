@@ -118,5 +118,8 @@
 
 .staticDiv{
   background-image: url('../assets/layoutAuth/homeAuthLayout.png');
+  background-position: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
 }

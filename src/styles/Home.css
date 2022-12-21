@@ -1,0 +1,57 @@
+.Home{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
+.textHome{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-right: 3rem;
+}
+
+.textHome > h1{
+  font-size: 3rem;
+}
+
+.textHome > h1 > span{
+  color: var(--standard-yellow);
+}
+
+.textHome > p{
+  color: var(--dark-gray-text);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.loginBtn{
+  display: block;
+  padding: 0.8rem 2rem;
+  border-radius: 0.3rem;
+  color: var(--white);
+  background-color: var(--black);
+  width: fit-content;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: 0.5s all ease-in-out;
+}
+
+.loginBtn:hover{
+  background-color: var(--standard-yellow);
+}
+
+.imgDivHome{
+  display: flex;
+  flex-direction: column;
+  flex-direction: flex-end;
+}
+
+.imgDivHome > img{
+  max-width: 87%;
+  align-self: flex-end;
+}

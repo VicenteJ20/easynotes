@@ -1,0 +1,152 @@
+.header-nav{ 
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: var(--background-gray);
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999999;
+}
+
+.brand-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-div > a{
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--black);
+  text-decoration: none;
+  display: block;
+  transition: 0.4s;
+}
+
+.brand-div > a:hover{
+  color: var(--standard-yellow);
+}
+
+.button-mobile{
+  display: none;
+}
+
+.nav-ul{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0 2rem;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-item > a{
+  text-decoration: none;
+  transition: 0.5s;
+  font-size: 1.25rem;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.nav-item > a:hover{
+  color: var(--standard-yellow)
+}
+
+.contact-button-li > a{
+  border: 2px solid var(--standard-yellow);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.5s;
+  background-color: var(--standard-yellow);
+}
+
+.contact-button-li > a.is-active{
+  border: 2px solid var(--standard-yellow);
+}
+
+.contact-button-li > a:hover{
+  color: var(--white);
+}
+
+@media only screen and (max-width: 998px) {
+  .header-nav{
+     padding: 1.5rem 2rem 1rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 860px){
+  .button-mobile{
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     height: 2rem;
+     width: 2rem;
+     border: none;
+     background: none;
+     cursor: pointer;
+  }
+
+  .button-mobile > div{
+     background-color: var(--dark-gray-text);
+     height: 6px;
+     width: 100%;
+     border-radius: 0.1rem;
+     transition: all 0.5s ease-in-out;
+     transform-origin: right;
+  }
+
+  .button-mobile:hover div:first-child{
+     transform: rotate(-45deg);
+  }
+
+  .button-mobile:hover div:nth-child(2){
+     opacity: 0;
+  }
+
+  .button-mobile:hover div:nth-child(3){
+     transform: rotate(45deg);
+  }
+
+  .navtag {
+     width: 100%;
+     display: flex;
+     flex-flow: column nowrap;
+     align-items: center;
+     justify-content: center;
+     height: 0vh;
+     overflow: hidden;
+     opacity: 0;
+     transition: all 0.6s ease-in-out;
+     padding-bottom: 5rem;
+  }
+
+  .navtag.isActive{
+     display: flex;
+     height: 100vh;
+     opacity: 1;
+  }
+
+  .nav-ul{
+     flex-direction: column;
+     gap: 3rem 0;
+     padding: 0 1rem;
+  }
+
+  .nav-item > a{
+     font-size: 1.8rem;
+  }
+
+  .contact-button-li > a{
+     font-size: 1.8rem;
+  }
+}

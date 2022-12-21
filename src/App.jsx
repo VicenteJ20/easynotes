@@ -1,25 +1,27 @@
 import { Routes, Route } from 'react-router-dom'
 import { Signup } from './pages/Signup'
 import { Login } from './pages/Login'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Auth from './components/Auth'
 import { useContext } from 'react'
 import { UserContext } from './context/UserProvider'
 import '../src/styles/App.css'
+import Loader from './components/Loader'
+import NotFound from './components/NotFound'
 
 function App () {
   const { user } = useContext(UserContext)
 
   if (user === undefined) {
-    return <p>Loading</p>
+    return <Loader />
   }
 
   return (
     <Routes>
-      <Route path='/' element={<Auth><Home /></Auth>} />
+      <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
-      <Route path='*' element={<h1 className='404'>No se encontró la página</h1>} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
   )
 }
