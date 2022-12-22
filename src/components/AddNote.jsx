@@ -1,9 +1,9 @@
 import '../styles/AddNote.css'
 
-export default function AddNote ({ visibility }) {
+export default function AddNote () {
   return (
     <section className='formParent'>
-      <form className={`addNoteForm ${visibility ? 'visibile' : 'hidden'}`}>
+      <form className='addNoteForm'>
         <div className='formDiv'>
           <label htmlFor='title'>Título:</label>
           <input className='inputDiv' type='text' name='title' id='title' placeholder='Nueva Nota' required />
