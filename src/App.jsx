@@ -9,6 +9,7 @@ import '../src/styles/App.css'
 import Loader from './components/Loader'
 import NotFound from './components/NotFound'
 import Dashboard from './pages/Dashboard/Dashboard'
+import Notes from './pages/Dashboard/Notes'
 
 function App () {
   const { user } = useContext(UserContext)
@@ -22,9 +23,8 @@ function App () {
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
-      <Route path='/dashboard' element={<Auth><Dashboard /></Auth>}>
-        <Route path='/dashboard/notes' element={<Loader />} />
-      </Route>
+      <Route path='/dashboard' element={<Auth><Dashboard /></Auth>} />
+      <Route path='/dashboard/notes' element={<Auth><Notes /></Auth>} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

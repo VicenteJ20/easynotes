@@ -221,6 +221,7 @@
   border-radius: 2rem;
   display: block;
   transition: 0.7s all ease;
+  text-decoration: none;
 }
 
 .buttonFooter:hover {
@@ -254,7 +255,6 @@
 }
 
 .FirstDiv > ul > li > a{
-  text-decoration: none;
   transition: 0.7s all ease;
 }
 

@@ -1,0 +1,46 @@
+.DashboardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionDivHeader{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.notificationsLink{
+  display: flex;
+  border: 2px solid var(--dark-gray-text);
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+}
+
+.notificationsLink > svg{
+  fill: var(--dark-gray-text);
+}
+
+.btnNewNote{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  border: 3px solid var(--black);
+  color: var(--white);
+  background-color: var(--black);
+  border-radius: 0.3rem;
+  transition: 0.5s all ease-in-out;
+  cursor: pointer;
+}
+
+.btnNewNote > svg{
+  fill: var(--white);
+}
+
+.btnNewNote:hover{
+  border-color: var(--standard-yellow);
+}

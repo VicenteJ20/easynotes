@@ -81,7 +81,7 @@ export default function Home () {
       <section className='Footer'>
         <div className='bannerFooter'>
           <h2>Haz crecer tus proyectos personales<br />bajo tus propias reglas</h2>
-          <Link className='buttonFooter' to='/'>Registrarme</Link>
+          <Link className='buttonFooter' to='/signup'>Registrarme</Link>
         </div>
         <div className='FullFooter'>
           <div className='FirstDiv'>

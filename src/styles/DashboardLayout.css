@@ -92,3 +92,8 @@
 .logout:hover{
   fill: rgb(194, 9, 9);
 }
+
+.childrenLayout{
+  padding: 2rem;
+  width: 100%;
+}

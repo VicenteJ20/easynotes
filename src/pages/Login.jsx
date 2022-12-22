@@ -8,19 +8,24 @@ import { Link } from 'react-router-dom'
 import AuthMessage from '../components/AuthMessage'
 
 export const Login = () => {
-  const { loginUser } = useContext(UserContext)
+  const { loginUser, user } = useContext(UserContext)
   const [showMessage, setShowMessage] = useState({})
+
+  if (user !== undefined && user !== null) {
+    window.location.load = '/dashboard'
+  }
 
   const onSubmit = async (values) => {
     try {
       await loginUser(values.email, values.password)
-      console.log('Usuario logueado')
+      window.location.href = '/dashboard'
     } catch (error) {
       if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
         setShowMessage({ title: 'El email o la contraseña es incorrecto', message: 'Revise sus credendiales o cree una nueva cuenta con su correo electrónico', type: 'danger' })
       }
     }
   }
+
   return (
     <>
       <AuthLayout>

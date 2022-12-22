@@ -6,7 +6,15 @@ import { UserContext } from '../src/context/UserProvider'
 import '../src/styles/DashboardLayout.css'
 
 export default function DashboardLayout ({ children }) {
-  const { user } = useContext(UserContext)
+  const { user, signOutUser } = useContext(UserContext)
+
+  const handleLogout = async () => {
+    try {
+      await signOutUser()
+    } catch (error) {
+      console.log(error.code)
+    }
+  }
   return (
     <section className='DashboardLayout'>
       <div className='sidebardLayout'>
@@ -27,7 +35,7 @@ export default function DashboardLayout ({ children }) {
           <div className='btnsDataDashboard'>
             <Link to='/dashboard/settings' className='btnDashboardNav'><IoSettingsSharp className='settings' /></Link>
             <Link to='/dashboard/profile' className='btnDashboardNav'><FaUser className='fauser' /></Link>
-            <button className='btnDashboardNav'><IoLogOut className='logout' /></button>
+            <button onClick={handleLogout} className='btnDashboardNav'><IoLogOut className='logout' /></button>
           </div>
         </div>
       </div>
