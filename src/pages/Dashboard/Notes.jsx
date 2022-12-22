@@ -10,6 +10,7 @@ import '../../styles/AddNote.css'
 import { TwitterPicker } from 'react-color'
 import { IoColorPalette } from 'react-icons/io5'
 import { FiAlignJustify } from 'react-icons/fi'
+import { MdFormatLineSpacing } from 'react-icons/md'
 
 export default function Notes () {
   const { data, error, loading } = useFirestore()
@@ -18,6 +19,7 @@ export default function Notes () {
   const [font, setFont] = useState('Poppins')
   const [color, setColor] = useState('#fcb900')
   const [align, setAlign] = useState('left')
+  const [spacing, setSpacing] = useState(1.5)
 
   if (loading) return <DashboardLayout><InternalLoader /></DashboardLayout>
   else if (error) return <p>error</p>
@@ -53,7 +55,10 @@ export default function Notes () {
     setAlign(val)
   }
 
-  console.log(align)
+  const handleSpacing = (e) => {
+    const val = e.target.value
+    setSpacing(val)
+  }
 
   return (
     <DashboardLayout>
@@ -87,17 +92,31 @@ export default function Notes () {
                 <div className='formDiv'>
                   <label htmlFor='alignSelect'><FiAlignJustify /> </label>
                   <select name='alignSelect' className='selectDiv' onChange={handleAlign}>
-                    <option defaultValue='left'>Izquierda</option>
+                    <option value='left'>Izquierda</option>
                     <option value='center'>Centro</option>
                     <option value='right'>Derecha</option>
-                    <option value='justify'>Justificado</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className='formDiv' style={{ fontFamily: `${font}, sans-serif` }}>
+              <div className='alignButtons'>
+                <div className='formDiv'>
+                  <label htmlFor='alignSelect'><MdFormatLineSpacing /> </label>
+                  <select name='alignSelect' className='selectDiv' onChange={handleSpacing}>
+                    <option value='1.5'>1.5</option>
+                    <option value='1'>1</option>
+                    <option value='1.15'>1.15</option>
+                    <option value='2.0'>2</option>
+                    <option value='2.5'>2.5</option>
+                    <option value='3.0'>3.0</option>
                   </select>
                 </div>
               </div>
             </div>
           </div>
-          <div className='formTextArea' style={{ fontFamily: `${font}, sans-serif` }}>
-            <textarea className='inputTextArea' onKeyDown={(e) => !e.keycode === 13} type='text' name='description' id='description' placeholder='Escriba un mensaje aquí' required />
+          <div className='formTextArea'>
+            <textarea className='inputTextArea' onKeyDown={(e) => !e.keycode === 13} type='text' style={{ fontFamily: `${font}, sans-serif`, textAlign: align, lineHeight: spacing }} name='description' id='description' placeholder='Escriba un mensaje aquí' required />
           </div>
         </form>
       </section>

@@ -65,7 +65,7 @@
 }
 
 .selectDiv{
-  padding: 0.3rem 1rem;
+  padding: 0 1rem;
   border: 1px solid var(--dark-gray-text);
   background-color: transparent;
   font-size: 1rem;
@@ -74,8 +74,8 @@
 
 .selectColor{
   all: unset;
-  width: 2rem;
-  height: 2rem;
+  width: 1.45rem;
+  height: 1.45rem;
   border: 1px solid var(--dark-gray-text);
   border-radius: 0.2rem;
   cursor: pointer;
@@ -100,7 +100,6 @@
 }
 
 .inputTextArea{
-  word-wrap: break-word;
   resize: none;
   height: 100%;
   outline: none;
