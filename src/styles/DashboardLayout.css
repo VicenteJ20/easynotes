@@ -1,0 +1,94 @@
+.DashboardLayout{
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.sidebardLayout{
+  background-color: var(--dashboard-dark);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.sidebardLayout > header > h1 {
+  color: var(--white);
+}
+
+.sidebardLayout > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.sidebardLayout > ul > li > a {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.sidebardLayout > ul > li > a > svg{
+  fill: var(--white)
+}
+.sidebardLayout > ul > li > a {
+  color: var(--white);
+  text-decoration: none;
+  transition: 0.5s all ease-in-out;
+}
+
+.sidebardLayout > ul > li > a:hover{
+  color: var(--standard-yellow);
+}
+
+.userDataDashboard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userDataDashboard > img{
+  width: 6rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.userDataDashboard > h3,
+.userDataDashboard > p{
+  color: var(--white);
+}
+
+.btnsDataDashboard{
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btnDashboardNav{
+  display: block;
+  font-size: 1.3rem;
+  background: none;
+  border: 0.3rem;
+  padding: 0.4rem;
+  fill: var(--white);
+}
+
+.btnDashboardNav > svg{
+  cursor: pointer;
+  transition: 0.5s all ease-in-out;
+  fill: var(--white);
+}
+
+.settings:hover,
+.fauser:hover{
+  fill: var(--standard-yellow);
+}
+
+
+.logout:hover{
+  fill: rgb(194, 9, 9);
+}

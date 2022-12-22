@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   background-color: var(--background-gray);
-  padding: 1.5rem 2.5rem 1rem 2.5rem;
+  padding: 1.5rem 3rem 1rem 3rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -20,7 +20,7 @@
 }
 
 .brand-div > a{
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--black);
   text-decoration: none;
@@ -50,8 +50,8 @@
   text-decoration: none;
   transition: 0.5s;
   font-size: 1.25rem;
-  color: var(--black);
-  font-weight: 600;
+  color: var(--dark-gray-text);
+  font-weight: 500;
 }
 
 .nav-item > a:hover{

@@ -1,7 +1,7 @@
-.Home{
+.HomeSection{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
   padding-top: 4rem;
@@ -54,4 +54,269 @@
 .imgDivHome > img{
   max-width: 87%;
   align-self: flex-end;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titleHeader{
+  text-align: center;
+  font-size: 1.9rem;
+}
+
+.descriptionHeader{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--dark-gray-text);
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.whatCanIdo{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.whatCanIdoCards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 3rem;
+}
+
+.FeatureCard{
+  background-color: var(--white);
+  padding: 1.4rem;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.FeatureCard > header > img{
+  max-width: 3rem;
+  max-height: 3rem;
+}
+
+.FeatureTitle{
+  font-size: 1.2rem;
+}
+
+.FeatureDescription{
+  font-size: 1.1rem;
+}
+
+
+
+.Subscriptions{
+  padding: 7rem 3rem 1rem 3rem;
+  min-height: 100vh;
+}
+
+.gridSubscription{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(25rem, 25%));
+  justify-content: center;
+  gap: 4rem 2rem;
+  margin: 2.5rem 0;
+}
+
+.gridSubscription > div {
+  background-color: #fff;
+  box-shadow: 0 0 20px 5px rgba(24, 24, 24, 0.137);
+  border-radius: 1.7rem;
+  min-height: 20rem;
+  transition: 0.7s all ease;
+  cursor: pointer;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.gridSubscription > div:hover {
+  box-shadow: 0 0 20px 5px rgba(219, 168, 0, 0.856);
+}
+
+.gridSubscription > div > header {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.price{
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.price > h2{
+  color: var(--standard-yellow);
+  font-size: 2.5rem;
+}
+
+.price > h2 > span {
+  color: var(--dark-gray-text);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.price > p{
+  font-size: 1.2rem;
+}
+
+.ulDivSubscription > ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: start;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.ulDivSubscription > ul > li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.Footer{
+  padding: 7rem 3rem 1rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bannerFooter {
+  min-height: 25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.bannerFooter > h2{
+  font-size: 3rem;
+}
+
+.buttonFooter {
+  background-color: var(--standard-yellow);
+  padding: 0.7rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 2rem;
+  display: block;
+  transition: 0.7s all ease;
+}
+
+.buttonFooter:hover {
+  background-color: var(--dark-gray-text);
+}
+
+.FullFooter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+  border-top: 3px solid var(--dark-gray-text);
+  padding-top: 2rem;
+}
+
+.FirstDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.FirstDiv > ul{
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+.FirstDiv > ul > li {
+  font-size: 1.6rem;
+  color: var(--dark-gray-text);
+}
+
+.FirstDiv > ul > li > a{
+  text-decoration: none;
+  transition: 0.7s all ease;
+}
+
+.FirstDiv > ul > li > a:hover {
+  color: var(--standard-yellow);
+}
+
+.FullFooter > div {
+  padding: 1rem;
+
+}
+
+.divInternalFooter > ul{
+  padding-left: 2rem;
+  margin-top: 1rem;
+  line-height: 3;
+}
+
+.divInternalFooter > ul > li > a{
+  transition: 0.5s all ease;
+}
+
+.divInternalFooter > ul > li > a:hover {
+  color: var(--standard-yellow);
+}
+
+.FooterElement{
+  font-weight: 500;
+}
+
+@media screen and (max-width: 900px){
+  .FullFooter {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+}
+
+@media screen and (max-width: 590px){
+  .FullFooter {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px){
+  .bannerFooter{
+    min-height: 30rem;
+    gap: 2rem;
+  }
+  .bannerFooter > h2 {
+    font-size: 2.5rem;
+  }
+  .gridSubscription {
+    grid-template-columns: 80%;
+  }
+
+  .gridSubscription > div{
+    gap: 3rem;
+  }
+}
+
+
+@media screen and (max-width: 630px){
+  .gridSubscription {
+    grid-template-columns: 70%;
+  }
 }

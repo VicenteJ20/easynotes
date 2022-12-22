@@ -9,9 +9,10 @@
 }
 
 :root{
-  --background-gray: #FAFAFA;
+  --background-gray: #f0efe9;
   --white: #FFF;
   --black: #050505;
+  --dashboard-dark: #252525;
   --dark-gray-text: #575757;
   --light-gray-text: #a3a3a3;
   --standard-yellow: #D89900;

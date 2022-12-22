@@ -6,7 +6,7 @@
    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 }
 
-.childrenDiv{
+.childrenAuthDiv{
   padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,7 @@
 .headerChildren {
   font-weight: 800;
   font-size: 2rem;
+  padding: 0;
 }
 
 .headerChildren > a {

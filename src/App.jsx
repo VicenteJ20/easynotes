@@ -22,7 +22,9 @@ function App () {
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
-      <Route path='/dashboard' element={<Auth><Dashboard /></Auth>} />
+      <Route path='/dashboard' element={<Auth><Dashboard /></Auth>}>
+        <Route path='/dashboard/notes' element={<Loader />} />
+      </Route>
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

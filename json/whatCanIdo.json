@@ -1,0 +1,32 @@
+[
+  {
+    "iconName": "notes.png",
+    "title": "Crea notas y mantente organizado y productivo",
+    "description": "Puedes crear notas fácilmente, editar su fuente, tamaño del texto, cambiar su color, marcarlas como importante, y mucho más."
+  },
+  {
+    "iconName": "reminders.png",
+    "title": "Establece recordatorios y despreocupate",
+    "description": "Puedes crear recordatorios personalizados y recibir notificaciones en horarios predefinidos, de esta manera puedes concentrarte en lo importante."
+  },
+  {
+    "iconName": "calendar.png",
+    "title": "Crea reservaciones desde cualquier momento y lugar",
+    "description": "Con el calendario integrado puedes crear reservaciones para tus citas, reuniones, entre muchos otros usos. De esa manera, no te pierdes ningún momento importante."
+  },
+  {
+    "iconName": "support.png",
+    "title": "¿Problemas? Contacta con especialistas",
+    "description": "En EasyNotes contamos con un servicio técnico especializado, que te permiriá resolver tus dudas o consultas de forma fácil y rápida."
+  },
+  {
+    "iconName": "trash.png",
+    "title": "Recupera archivos borrados hasta por 7 días",
+    "description": "¿Te arrepentiste de borrar esa nota importante? - No hay problema, en EasyNotes puedes recuperar tus notas y recordatorios borrados hasta por 1 mes."
+  },
+  {
+    "iconName": "cloud.png",
+    "title": "Disfruta de la nube y el acceso multidispositivo",
+    "description": "Nuestro servicio se basa en la nube, esto quiere decir que mientras estés conectado a internet puedes acceder desde cualquier lugar a tus notas y recordatorios."
+  }
+]
