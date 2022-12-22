@@ -11,6 +11,10 @@ import { useState } from 'react'
 export const Signup = () => {
   const [showMessage, setShowMessage] = useState({})
 
+  if (auth.currentUser !== null) {
+    window.location.href = '/dashboard'
+  }
+
   const onSubmit = async (values) => {
     try {
       await createUserWithEmailAndPassword(auth, values.email, values.password)

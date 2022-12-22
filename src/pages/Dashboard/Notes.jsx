@@ -5,28 +5,32 @@ import { Link } from 'react-router-dom'
 import DashboardLayout from '../../../layout/DashboardLayout'
 import InternalLoader from '../../components/InternalLoader'
 import { useFirestore } from '../../hooks/useFirestore'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../../styles/AddNote.css'
 import { TwitterPicker } from 'react-color'
 import { IoColorPalette } from 'react-icons/io5'
 import { FiAlignJustify } from 'react-icons/fi'
 import { MdFormatLineSpacing } from 'react-icons/md'
+import { auth } from '../../../firebase'
+import { NoteCard } from '../../components/NoteCard'
 
 export default function Notes () {
-  const { data, error, loading } = useFirestore()
+  const { data, error, loading, getData, addNote } = useFirestore()
   const [show, setShow] = useState(false)
   const [showColor, setShowColor] = useState(false)
+  const [title, setTitle] = useState('')
+  const [desc, setDescription] = useState('')
   const [font, setFont] = useState('Poppins')
   const [color, setColor] = useState('#fcb900')
   const [align, setAlign] = useState('left')
   const [spacing, setSpacing] = useState(1.5)
 
-  if (loading) return <DashboardLayout><InternalLoader /></DashboardLayout>
-  else if (error) return <p>error</p>
+  useEffect(() => {
+    getData()
+  }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+  if (loading.getData) return <DashboardLayout><InternalLoader /></DashboardLayout>
+  else if (error) return <p>error</p>
 
   const handleClick = () => {
     setShow(!show)
@@ -34,6 +38,14 @@ export default function Notes () {
 
   const handleCloseClick = () => {
     setShow(!show)
+  }
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+  const handleDescription = (e) => {
+    setDescription(e.target.value)
   }
 
   const handleFont = (e) => {
@@ -47,7 +59,6 @@ export default function Notes () {
 
   const handleSelectColor = (color, event) => {
     setColor(color.hex)
-    console.log(color.hex)
   }
 
   const handleAlign = (e) => {
@@ -60,6 +71,25 @@ export default function Notes () {
     setSpacing(val)
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const data = {
+      uid: auth.currentUser.uid,
+      titleSet: title,
+      description: desc,
+      fontSelected: font,
+      backgroundColor: color,
+      alignSelected: align,
+      letterSpacing: spacing
+    }
+
+    await addNote(data)
+    setTitle('')
+    setDescription('')
+    setSpacing(1.5)
+    setShow(false)
+  }
+
   return (
     <DashboardLayout>
       <section className={`formParent ${show ? 'visible' : 'hidden'}`}>
@@ -69,7 +99,7 @@ export default function Notes () {
             <button className='closeButtonNote' onClick={handleCloseClick} type='button'><VscChromeClose /> </button>
           </div>
           <div className='formDiv' style={{ fontFamily: `${font}, sans-serif` }}>
-            <input className='inputDivTitle' type='text' name='title' id='title' placeholder='Nueva Nota' required />
+            <input className='inputDivTitle' type='text' onChange={handleTitle} value={title} name='title' id='title' placeholder='Nueva Nota' required />
           </div>
           <div className='menuBarNote' style={{ fontFamily: `${font}, sans-serif` }}>
             <div className='formDiv'>
@@ -116,7 +146,7 @@ export default function Notes () {
             </div>
           </div>
           <div className='formTextArea'>
-            <textarea className='inputTextArea' onKeyDown={(e) => !e.keycode === 13} type='text' style={{ fontFamily: `${font}, sans-serif`, textAlign: align, lineHeight: spacing }} name='description' id='description' placeholder='Escriba un mensaje aquí' required />
+            <textarea className='inputTextArea' value={desc} onChange={handleDescription} type='text' style={{ fontFamily: `${font}, sans-serif`, textAlign: align, lineHeight: spacing }} name='description' id='description' placeholder='Escriba un mensaje aquí' required />
           </div>
         </form>
       </section>
@@ -132,14 +162,7 @@ export default function Notes () {
       <section className='DashboardContentSection'>
         {
           data.map((x, index) => (
-            <div key={index}>
-              <p>{x.Title}</p>
-              <p>{x.Description}</p>
-              <p>{x.CreatedAt}</p>
-              <p>{x.ModifiedAt}</p>
-              <p>{x.color}</p>
-              <p>{x.uid}</p>
-            </div>
+            <NoteCard data={x} key={index} />
           ))
         }
       </section>

@@ -6,13 +6,19 @@ import { Input } from '../components/Input'
 import AuthLayout from '../../layout/AuthLayout'
 import { Link } from 'react-router-dom'
 import AuthMessage from '../components/AuthMessage'
+import Loader from '../components/Loader'
+import { auth } from '../../firebase'
 
 export const Login = () => {
   const { loginUser, user } = useContext(UserContext)
   const [showMessage, setShowMessage] = useState({})
 
-  if (user !== undefined && user !== null) {
-    window.location.load = '/dashboard'
+  if (user === undefined) {
+    return <Loader />
+  }
+
+  if (auth.currentUser !== null) {
+    window.location.href = '/dashboard'
   }
 
   const onSubmit = async (values) => {
