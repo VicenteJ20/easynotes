@@ -10,6 +10,7 @@ import Loader from './components/Loader'
 import NotFound from './components/NotFound'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Notes from './pages/Dashboard/Notes'
+import Working from './components/working'
 
 function App () {
   const { user } = useContext(UserContext)
@@ -25,6 +26,10 @@ function App () {
       <Route path='/signup' element={<Signup />} />
       <Route path='/dashboard' element={<Auth><Dashboard /></Auth>} />
       <Route path='/dashboard/notes' element={<Auth><Notes /></Auth>} />
+      <Route path='/dashboard/reminders' element={<Auth><Working /></Auth>} />
+      <Route path='/dashboard/trash' element={<Auth><Working /></Auth>} />
+      <Route path='/dashboard/settings' element={<Auth><Working /></Auth>} />
+      <Route path='/dashboard/profile' element={<Auth><Working /></Auth>} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

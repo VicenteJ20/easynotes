@@ -10,8 +10,8 @@ export const UserProvider = (props) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { email, displayName, phoneNumber, photoURL, uid } = user
-        setUser({ email, displayName, phoneNumber, photoURL, uid })
+        const { email, displayName, phoneNumber, photoURL, uid, emailVerified } = user
+        setUser({ email, displayName, phoneNumber, photoURL, uid, emailVerified })
       } else {
         setUser(null)
       }

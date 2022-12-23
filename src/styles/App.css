@@ -16,4 +16,6 @@
   --dark-gray-text: #575757;
   --light-gray-text: #a3a3a3;
   --standard-yellow: #D89900;
+  --green-note: rgb(102, 211, 102);
+  --danger-note: rgb(255, 110, 25);
 }
