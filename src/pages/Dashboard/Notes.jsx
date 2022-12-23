@@ -15,7 +15,7 @@ import { auth } from '../../../firebase'
 import { NoteCard } from '../../components/NoteCard'
 
 export default function Notes () {
-  const { data, error, loading, getData, addNote, deleteData } = useFirestore()
+  const { data, error, loading, getData, addNote, deleteData, updateData } = useFirestore()
   const [show, setShow] = useState(false)
   const [showColor, setShowColor] = useState(false)
   const [title, setTitle] = useState('')
@@ -24,6 +24,7 @@ export default function Notes () {
   const [color, setColor] = useState('#fcb900')
   const [align, setAlign] = useState('left')
   const [spacing, setSpacing] = useState(1.5)
+  const [edit, setEdit] = useState()
 
   useEffect(() => {
     getData()
@@ -39,6 +40,13 @@ export default function Notes () {
 
   const handleCloseClick = () => {
     setShow(!show)
+    setTitle('')
+    setDescription('')
+    setEdit()
+    setColor('#fcb900')
+    setFont('Poppins')
+    setAlign('left')
+    setSpacing(1.5)
   }
 
   const handleTitle = (e) => {
@@ -74,6 +82,7 @@ export default function Notes () {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     const data = {
       uid: auth.currentUser.uid,
       titleSet: title,
@@ -82,6 +91,13 @@ export default function Notes () {
       backgroundColor: color,
       alignSelected: align,
       letterSpacing: spacing
+    }
+
+    if (setEdit) {
+      await updateData(edit, data)
+      setEdit()
+      setShow(false)
+      return
     }
 
     await addNote(data)
@@ -93,6 +109,16 @@ export default function Notes () {
 
   const handleDelete = async (id) => {
     await deleteData(id)
+  }
+
+  const handleEdit = async (data) => {
+    setShow(true)
+    setTitle(data.titleSet)
+    setDescription(data.description)
+    setColor(data.backgroundColor)
+    setSpacing(data.letterSpacing)
+    setAlign(data.alignSelected)
+    setEdit(data.id)
   }
 
   return (
@@ -167,7 +193,7 @@ export default function Notes () {
       <section className='DashboardContentSection'>
         {
           data.map((x) => (
-            <NoteCard data={x} load={loading[x.id]} onClick={() => handleDelete(x.id)} key={x.id} />
+            <NoteCard data={x} load={loading[x.id]} onClick={() => handleDelete(x.id)} onClickDiv={() => handleEdit(x)} key={x.id} />
           ))
         }
       </section>

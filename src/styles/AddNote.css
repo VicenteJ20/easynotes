@@ -5,7 +5,7 @@
 .hidden{
   visibility: hidden;
   opacity:0;
-  transition: visibility 0.6 linear,opacity 0.6s linear;
+  transition: visibility 0.5 linear,opacity 0.2s linear;
   background:#eee;
 }
 
@@ -150,6 +150,11 @@
   padding: 1rem;
   position: relative;
   border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.NoteCard > h3 {
+  padding-right: 10%;
 }
 
 .descriptionNoteCard{
@@ -176,3 +181,4 @@
 .deleteNote > svg:hover{
   fill: white;
 }
+

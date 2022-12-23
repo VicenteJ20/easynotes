@@ -1,4 +1,4 @@
-import { collection, getDocs, where, query, setDoc, doc, deleteDoc } from 'firebase/firestore/lite'
+import { collection, getDocs, where, query, setDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore/lite'
 import { useState, useContext } from 'react'
 import { db } from '../../firebase'
 import { UserContext } from '../context/UserProvider'
@@ -18,9 +18,6 @@ export const useFirestore = () => {
       const querySnapshot = await getDocs(q)
       const dbData = querySnapshot.docs.map(x => x.data())
       setData(dbData)
-    } catch (err) {
-      console.log(err.message)
-      setError(err.message)
     } finally {
       setLoading(prev => ({ ...prev, getData: false }))
     }
@@ -51,18 +48,46 @@ export const useFirestore = () => {
     }
   }
 
+  const updateData = async (id, d) => {
+    try {
+      setLoading((prev) => ({ ...prev, updateData: true }))
+      const docRef = doc(db, 'Notes', id)
+      await updateDoc(docRef, {
+        titleSet: d.titleSet,
+        description: d.description,
+        fontSelected: d.fontSelected,
+        backgroundColor: d.backgroundColor,
+        alignSelected: d.alignSelected,
+        letterSpacing: d.letterSpacing
+      })
+      setData(data.map(x => x.id === id
+        ? ({
+            ...x,
+            titleSet: d.titleSet,
+            description: d.description,
+            fontSelected: d.fontSelected,
+            backgroundColor: d.backgroundColor,
+            alignSelected: d.alignSelected,
+            letterSpacing: d.letterSpacing
+          })
+        : x))
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setLoading((prev) => ({ ...prev, updateData: false }))
+    }
+  }
+
   const deleteData = async (userid) => {
     try {
       setLoading((prev) => ({ ...prev, deleteData: true }))
       const docRef = doc(db, 'Notes', userid)
       await deleteDoc(docRef)
       setData(data.filter(x => x.id !== userid))
-    } catch (err) {
-      console.log(err)
     } finally {
       setLoading((prev) => ({ ...prev, deleteData: false }))
     }
   }
 
-  return { data, error, loading, getData, addNote, deleteData }
+  return { data, error, loading, getData, addNote, deleteData, updateData }
 }
