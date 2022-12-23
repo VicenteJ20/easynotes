@@ -7,10 +7,12 @@ export const NoteCard = ({ data, onClick, load, onClickDiv }) => {
   }
 
   return (
-    <div onClick={onClickDiv} className='NoteCard' style={{ backgroundColor: data.backgroundColor }}>
+    <div className='NoteCard' style={{ backgroundColor: data.backgroundColor }}>
       <button onClick={onClick} className='deleteNote'><MdDelete /></button>
-      <h3>{data.titleSet}</h3>
-      <p className='descriptionNoteCard'>{data.description}</p>
+      <div onClick={onClickDiv}>
+        <h3>{data.titleSet}</h3>
+        <p className='descriptionNoteCard'>{data.description}</p>
+      </div>
     </div>
   )
 }

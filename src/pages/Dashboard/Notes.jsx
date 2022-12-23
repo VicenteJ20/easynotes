@@ -93,10 +93,11 @@ export default function Notes () {
       letterSpacing: spacing
     }
 
-    if (setEdit) {
+    if (edit !== undefined) {
       await updateData(edit, data)
       setEdit()
       setShow(false)
+      console.log(edit)
       return
     }
 

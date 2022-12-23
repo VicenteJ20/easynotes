@@ -12,7 +12,7 @@
 .formParent{
   transition: 1s;
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   left: 5%;
   right: 5%;
   top: 2rem;
@@ -172,6 +172,7 @@
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+  z-index: 3;
 }
 
 .deleteNote > svg{
