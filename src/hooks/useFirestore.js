@@ -18,7 +18,6 @@ export const useFirestore = () => {
       const querySnapshot = await getDocs(q)
       const dbData = querySnapshot.docs.map(x => x.data())
       setData(dbData)
-      console.log(dbData)
     } catch (err) {
       console.log(err.message)
       setError(err.message)
@@ -52,16 +51,16 @@ export const useFirestore = () => {
     }
   }
 
-  const deleteData = async (id) => {
+  const deleteData = async (userid) => {
     try {
-      setLoading(prev => ({ ...prev, deleteData: true }))
-      const docRef = doc(db, 'Notes', id)
+      setLoading((prev) => ({ ...prev, deleteData: true }))
+      const docRef = doc(db, 'Notes', userid)
       await deleteDoc(docRef)
-      setData([data.filter(x => x.id !== id)])
+      setData(data.filter(x => x.id !== userid))
     } catch (err) {
-      setError(err)
+      console.log(err)
     } finally {
-      setLoading(prev => ({ ...prev, deleteData: false }))
+      setLoading((prev) => ({ ...prev, deleteData: false }))
     }
   }
 

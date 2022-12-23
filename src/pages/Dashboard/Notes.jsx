@@ -15,7 +15,7 @@ import { auth } from '../../../firebase'
 import { NoteCard } from '../../components/NoteCard'
 
 export default function Notes () {
-  const { data, error, loading, getData, addNote } = useFirestore()
+  const { data, error, loading, getData, addNote, deleteData } = useFirestore()
   const [show, setShow] = useState(false)
   const [showColor, setShowColor] = useState(false)
   const [title, setTitle] = useState('')
@@ -27,6 +27,7 @@ export default function Notes () {
 
   useEffect(() => {
     getData()
+    deleteData()
   }, [])
 
   if (loading.getData) return <DashboardLayout><InternalLoader /></DashboardLayout>
@@ -88,6 +89,10 @@ export default function Notes () {
     setDescription('')
     setSpacing(1.5)
     setShow(false)
+  }
+
+  const handleDelete = async (id) => {
+    await deleteData(id)
   }
 
   return (
@@ -161,8 +166,8 @@ export default function Notes () {
       </header>
       <section className='DashboardContentSection'>
         {
-          data.map((x, index) => (
-            <NoteCard data={x} key={index} />
+          data.map((x) => (
+            <NoteCard data={x} load={loading[x.id]} onClick={() => handleDelete(x.id)} key={x.id} />
           ))
         }
       </section>
