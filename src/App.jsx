@@ -30,6 +30,7 @@ function App () {
       <Route path='/dashboard/trash' element={<Auth><Working /></Auth>} />
       <Route path='/dashboard/settings' element={<Auth><Working /></Auth>} />
       <Route path='/dashboard/profile' element={<Auth><Working /></Auth>} />
+      <Route path='/dashboard/notifications' element={<Auth><Working /></Auth>} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )
